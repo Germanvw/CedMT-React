@@ -1,4 +1,4 @@
-import { IDropdownResponse, IMethodResponse } from '.'
+import { IDropdownResponse, IMethodResponse, IErrorResponse } from '.';
 
 export interface ISectorSliceState {
   sectores: null | ISector[]
@@ -8,7 +8,7 @@ export interface ISectorSliceState {
 }
 
 export interface ISectorResponse {
-  errors: null | any
+  errors: IErrorResponse[] | null
   data: IDropdownResponse[]
   meta: IMethodResponse
 }

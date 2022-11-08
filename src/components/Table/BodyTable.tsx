@@ -1,11 +1,16 @@
 import { TableBody } from '@mui/material'
 import { CellTable } from './CellTable'
 
-export const BodyTable = ({rows}: {rows: string[][]}) => {
+interface Props {
+  tiposVariable: string[]
+  rows: string[][]
+}
+
+export const BodyTable = ({rows, tiposVariable}: Props) => {
   return (
     <TableBody>
       {rows.map((row,index) => (
-          <CellTable row={row} key={index+row.length} />
+          <CellTable row={row} key={index+row.length} tiposVariable={tiposVariable} />
         ))}
     </TableBody>
   )

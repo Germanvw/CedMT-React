@@ -1,4 +1,5 @@
 import { IMethodResponse, IDropdownResponse } from '.';
+import { IErrorResponse } from './index';
 
 export interface IEntidadSliceState {
   entidades: null | IEntidad[]
@@ -8,7 +9,7 @@ export interface IEntidadSliceState {
 }
 
 export interface IEntidadResponse {
-  errors: null | any
+  errors: IErrorResponse[] | null
   data: IDropdownResponse[]
   meta: IMethodResponse
 }

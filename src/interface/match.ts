@@ -1,4 +1,4 @@
-import { IMethodResponse } from '.';
+import { IMethodResponse, IErrorResponse } from '.';
 
 interface IMatcheoCommon {
   delimitador: string
@@ -27,7 +27,7 @@ export interface IMatcheoDto extends IMatcheoCommon, IMatcheoDescripcion  {
 }
 
 export interface IMatcheoResponse {
-  errors: null | any
+  errors: IErrorResponse[] | null
   data: IMatcheo
   meta: IMethodResponse
 }

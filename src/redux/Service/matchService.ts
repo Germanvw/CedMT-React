@@ -2,11 +2,12 @@ import { fetchToken } from '../../hook/useFetch'
 import { IMatcheo, IMatcheoResponse } from '../../interface/match'
 
 const buscar = async (sectorId: string, entidadId: string) : Promise<IMatcheo> => {
-  const req = await fetchToken(`Execute?sectorId${sectorId}&entidadId=${entidadId}`, undefined, 'GET')
-  
+
+  const req = await fetchToken(`Execute?sectorId=${sectorId}&entidadId=${entidadId}`, undefined, 'GET')
+
   const { data, errors }: IMatcheoResponse = await req.json()
 
-  if(errors) throw new Error(errors)
+  if(errors) throw new Error(errors[0].message as string)
   else return data
 }
 

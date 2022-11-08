@@ -7,7 +7,7 @@ const buscar = async (sectorId: string) : Promise<IDropdownResponse[]> => {
   
   const { data, errors}: IEntidadResponse = await req.json()
 
-  if(errors) throw new Error(errors)
+  if(errors) throw new Error(errors[0].message as string)
   else return data
 }
 

@@ -5,10 +5,11 @@ import { usePagination } from '../../hook/usePagination'
 
 interface Props {
   header: string[]
+  tiposVariable: string[]
   rows: string[][]
 }
 
-export const CustomTable = ({rows, header}: Props) => {
+export const CustomTable = ({rows, header, tiposVariable}: Props) => {
 
   const { page, pageSize, paginatedRows, handleChange, setPage } = usePagination(rows)
 
@@ -18,10 +19,10 @@ export const CustomTable = ({rows, header}: Props) => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              {header.map((i, index) =><TableCell key={index}>{parseStringToSpaceUppercase(i)}</TableCell> )}
+              {header.map((i, index) =><TableCell align='center' key={index}>{parseStringToSpaceUppercase(i)}</TableCell> )}
             </TableRow>
           </TableHead>
-          <BodyTable rows={paginatedRows} />
+          <BodyTable rows={paginatedRows} tiposVariable={tiposVariable} />
         </Table>
       </TableContainer>
       <TablePagination
