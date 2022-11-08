@@ -5,7 +5,6 @@ export const useTab = (matcheo: IMatcheoDto | null) => {
   const [active, setActive] = useState('totales')
 
   const buscarValores = () : string[] => {
-    console.log(active)
     if(matcheo){
 
       const valores = matcheo.data[active as keyof IMatcheoData]

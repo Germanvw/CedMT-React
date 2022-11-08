@@ -10,7 +10,9 @@ export const MatcheoTab = () => {
   const { active, valores, setActive, calcularLabel } = useTab(matcheo)
 
   if(!matcheo) return null
-  console.log(Object.keys(matcheo.data))
+
+  const { data } = matcheo
+
   return (
     <Box>
       <Tabs
@@ -22,7 +24,7 @@ export const MatcheoTab = () => {
       aria-label="primary tabs example"
       >
         {
-          Object.keys(matcheo.data).map((i) =>  <Tab key={i} value={i} label={calcularLabel(i)} disabled={matcheo.data[i as keyof IMatcheoData].length === 0} />)
+          Object.keys(data).map((i) =>  <Tab key={i} value={i} label={calcularLabel(i)} disabled={data[i as keyof IMatcheoData].length === 0} />)
         }
     </Tabs>
     {active && <PanelTab value={valores} separator={matcheo.delimitador}/> }
