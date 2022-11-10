@@ -12,7 +12,7 @@ export const CustomSelector = ({label, value, options, handleChange}: Props) => 
     <FormControl sx={{ minWidth: 300 }}>
     {label && <InputLabel id="demo-simple-select-autowidth-label">{label}</InputLabel>}
       <Select
-        labelId="demo-simple-select-autowidth-label"
+        sx={{p:0}}
         id="demo-simple-select-autowidth"
         value={value}
         onChange={handleChange}

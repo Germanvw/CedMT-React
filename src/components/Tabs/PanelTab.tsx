@@ -9,7 +9,7 @@ interface Props {
 
 export const PanelTab = ({ value, separator }: Props) =>  {
   const { header, rows, tiposVariable } = parseToTable(value, separator)
-
+  console.log(value)
   return (
     <Box sx={{pb:5}}>
       <CustomTable rows={rows} header={header} tiposVariable={tiposVariable}/>

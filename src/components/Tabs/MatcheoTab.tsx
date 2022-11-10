@@ -1,4 +1,4 @@
-import { Box, Tab, Tabs } from '@mui/material'
+import { Box, Tab, Tabs, Typography } from '@mui/material'
 import { useAppSelector } from '../../hook/useRedux'
 import { PanelTab } from './PanelTab'
 import { useTab } from '../../hook/useTab'
@@ -25,15 +25,18 @@ export const MatcheoTab = () => {
       >
         {
           Object.keys(data).map((i) => (
-            data[i as keyof IMatcheoData].length > 0 
+            data[i as keyof IMatcheoData].length > 2 
             ?
-              <Tab key={i} value={i} label={calcularLabel(i)} disabled={data[i as keyof IMatcheoData].length === 0} />
+              <Tab key={i} value={i} label={calcularLabel(i)} disabled={data[i as keyof IMatcheoData].length < 2} />
             :
               null
           ))
         }
     </Tabs>
-    {active && <PanelTab value={valores} separator={matcheo.delimitador}/> }
+    {valores.length === 0 ? 
+      <Typography color='red'>No se han encontrado resultados</Typography>
+      : active && <PanelTab value={valores} separator={matcheo.delimitador}/> 
+    }
   </Box>  
   )
 }

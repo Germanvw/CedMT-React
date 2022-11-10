@@ -40,7 +40,8 @@ export const entidadSlice = createSlice({
       )
       .addMatcher(isAnyOf(startFetchEntidad.pending), (state) => {
         state.loading = true
-      })
+      }
+    )
   }
 })
 

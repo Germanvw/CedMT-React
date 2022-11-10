@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { authSlice } from './Slice/authSlice'
 import { entidadSlice } from './Slice/entidadSlice'
 import { matchSlice } from './Slice/matchSlice'
+import { paramSlice } from './Slice/paramSlice'
 import { sectorSlice } from './Slice/sectorSlice'
 import { uiSlice } from './Slice/uiSlice';
 
@@ -12,7 +13,8 @@ export const store = configureStore({
     ui: uiSlice.reducer,
     sector: sectorSlice.reducer,
     entidad: entidadSlice.reducer,
-    match: matchSlice.reducer
+    match: matchSlice.reducer,
+    param: paramSlice.reducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -38,6 +38,17 @@ export interface IMatchSliceState {
   loading: boolean
 }
 
+
+export interface IExecuteRequestBody {
+  sectorId: string
+  entidadId: string
+  calculaTotales: boolean
+  identificaDuplicadosOrigen1: boolean
+  identificaDuplicadosOrigen2: boolean
+  identificaNoMatchOrigen1: boolean
+  identificaNoMatchOrigen2: boolean
+  identificaMatcheados: boolean
+}
 // interface IMatcheoDtoItem {
 //   descripcion: string
 //   duplicados: string[]

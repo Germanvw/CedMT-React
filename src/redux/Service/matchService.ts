@@ -1,9 +1,15 @@
 import { fetchToken } from '../../hook/useFetch'
-import { IMatcheo, IMatcheoResponse } from '../../interface/match'
+import { IExecuteRequestBody, IMatcheo, IMatcheoResponse } from '../../interface/match'
+import { IParamMatcheo } from '../../interface/param'
 
-const buscar = async (sectorId: string, entidadId: string) : Promise<IMatcheo> => {
+const buscar = async (sectorId: string, entidadId: string, params: IParamMatcheo) : Promise<IMatcheo> => {
+  const body: IExecuteRequestBody = {
+    ...params,
+    sectorId,
+    entidadId,
+  }
 
-  const req = await fetchToken(`Execute?sectorId=${sectorId}&entidadId=${entidadId}`, undefined, 'GET')
+  const req = await fetchToken(`Execute?sectorId=${sectorId}&entidadId=${entidadId}`, body, 'POST')
 
   const { data, errors }: IMatcheoResponse = await req.json()
 

@@ -39,7 +39,8 @@ export const sectorSlice = createSlice({
       )
       .addMatcher(isAnyOf(startFetchSector.pending), (state) => {
         state.loading = true
-      })
+      }
+    )
   }
 })
 

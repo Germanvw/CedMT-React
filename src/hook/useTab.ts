@@ -1,8 +1,8 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect } from 'react';
 import { IMatcheoData, IMatcheoDto } from '../interface/match'
 
 export const useTab = (matcheo: IMatcheoDto | null) => {
-  const [active, setActive] = useState('totales')
+  const [active, setActive] = useState('')
 
   const buscarValores = () : string[] => {
     if(matcheo){
@@ -31,6 +31,13 @@ export const useTab = (matcheo: IMatcheoDto | null) => {
 
   
   const valores = useMemo(() => buscarValores(), [matcheo, active])
+
+  useEffect(() => {
+    if(matcheo){
+      const found = Object.keys(matcheo.data).find((i) => matcheo.data[i as keyof IMatcheoData].length > 0)
+      if(found) setActive(found)
+    }
+  },[matcheo])
 
   return { active, valores, setActive, calcularLabel }
 }

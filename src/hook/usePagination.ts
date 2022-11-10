@@ -5,7 +5,7 @@ export const usePagination = (rows: string[][]) => {
   const [pageSize, setPageSize] = useState(10)
 
 
-  const handleChange = (value: string ) => {
+  const handleChange = (value: string) => {
     setPage(0)
     setPageSize(parseInt(value))
   }

@@ -19,13 +19,14 @@ export const CustomTable = ({rows, header, tiposVariable}: Props) => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              {header.map((i, index) =><TableCell align='center' key={index}>{parseStringToSpaceUppercase(i)}</TableCell> )}
+              {header.map((i, index) =><TableCell  sx={{ p: 0.5, width:'auto' }} align='center' key={index}>{parseStringToSpaceUppercase(i)}</TableCell> )}
             </TableRow>
           </TableHead>
           <BodyTable rows={paginatedRows} tiposVariable={tiposVariable} />
         </Table>
       </TableContainer>
       <TablePagination
+        labelRowsPerPage='Registros por pagina'
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
         count={rows.length}

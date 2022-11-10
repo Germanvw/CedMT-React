@@ -24,7 +24,7 @@ export const CellTable = ({ row, tiposVariable } : Props) => {
         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
     >
       {row.map((i, index) => (
-      <TableCell sx={{ p:1 }} align='center' component="th" scope="row" key={i+index}>
+      <TableCell sx={{ p: 0.5, width:'auto' }} align='center'  key={i+index}>
         {parseToTipoVariable(i, index)}
       </TableCell>))}
     </TableRow>

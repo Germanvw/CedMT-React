@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice, isAnyOf } from '@reduxjs/toolkit'
 import { parseMatchToDto } from '../../helper/parseMatcheo'
 import { IEntidadSliceState } from '../../interface/entidad'
 import { IMatcheo, IMatchSliceState } from '../../interface/match'
+import { IParamSliceState } from '../../interface/param';
 import { ISectorSliceState } from '../../interface/sector'
 import { matchService } from '../Service/matchService'
 
@@ -37,7 +38,8 @@ export const matchSlice = createSlice({
       )
       .addMatcher(isAnyOf(startFetchMatch.pending), (state) => {
         state.loading = true
-      })
+      }
+    )
   }
 })
 
@@ -47,8 +49,11 @@ export const startFetchMatch = createAsyncThunk(
     try {
       const { sector } = getState() as { sector: ISectorSliceState }
       const { entidad } = getState() as { entidad: IEntidadSliceState }
+      const { param } = getState() as { param: IParamSliceState }
 
-      return await matchService.buscar(sector.sectorActivo.value, entidad.entidadActivo.value)
+      if(param.params)
+        return await matchService.buscar(sector.sectorActivo.value, entidad.entidadActivo.value, param.params)
+      else throw new Error('Parametro no ingresado')
     } catch (err: any) {
       return rejectWithValue(err.toString().split(': ')[1])
     }
