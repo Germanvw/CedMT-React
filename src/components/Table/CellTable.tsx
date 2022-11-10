@@ -18,13 +18,11 @@ export const CellTable = ({ row, tiposVariable } : Props) => {
 
     return tipoVariable === 'Int32' ? formatear(parseInt(i),'N') : tipoVariable === 'Decimal' ? formatear(parseFloat(parseFloat(i).toFixed(2)),'M') : i
    }
-   
+
   return (
-    <TableRow
-        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-    >
+    <TableRow>
       {row.map((i, index) => (
-      <TableCell sx={{ p: 0.5, width:'auto' }} align='center'  key={i+index}>
+      <TableCell sx={{ py: 0.5, px: 1, borderRight: index === row.length - 1 ? 0 : 1, borderColor: 'rgba(224, 224, 224, 1)' }} align='center' key={i+index}>
         {parseToTipoVariable(i, index)}
       </TableCell>))}
     </TableRow>

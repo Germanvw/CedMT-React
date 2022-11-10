@@ -16,12 +16,12 @@ export const MatcheoTab = () => {
   return (
     <Box>
       <Tabs
-      sx={{my: 5}}
-      value={active}
-      onChange={(_,value) => setActive(value)}
-      textColor="primary"
-      indicatorColor="primary"
-      aria-label="primary tabs example"
+        sx={{ my: 5}}
+        value={active}
+        onChange={(_,value) => setActive(value)}
+        textColor="primary"
+        indicatorColor="primary"
+        aria-label="primary tabs example"
       >
         {
           Object.keys(data).map((i) => (
@@ -33,8 +33,8 @@ export const MatcheoTab = () => {
           ))
         }
     </Tabs>
-    {valores.length === 0 ? 
-      <Typography color='red'>No se han encontrado resultados</Typography>
+    {valores.length === 0 
+      ? <Typography color='red'>No se han encontrado resultados</Typography>
       : active && <PanelTab value={valores} separator={matcheo.delimitador}/> 
     }
   </Box>  

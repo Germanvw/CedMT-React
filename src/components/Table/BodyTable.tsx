@@ -10,8 +10,8 @@ export const BodyTable = ({rows, tiposVariable}: Props) => {
   return (
     <TableBody>
       {rows.map((row,index) => (
-          <CellTable row={row} key={index+row.length} tiposVariable={tiposVariable} />
-        ))}
+        <CellTable row={row} key={index+row.length} tiposVariable={tiposVariable} />
+      ))}
     </TableBody>
   )
 }

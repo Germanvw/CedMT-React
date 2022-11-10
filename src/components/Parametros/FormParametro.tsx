@@ -25,6 +25,8 @@ export const FormParametro = ({ params, origenes }: Props) => {
     dispatch(startFetchMatch())
   }
 
+  const opcionesSeleccionadas = Object.values(params).find((i) => i === true) === undefined
+
   return (
     <Box sx={{ display: 'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
       <FormControlLabel
@@ -37,7 +39,7 @@ export const FormParametro = ({ params, origenes }: Props) => {
        <Box sx={{ display: 'flex', flexDirection:'row', alignItems:'center', justifyContent:'center'}}>
         <Typography sx={{ pr:3 }}>Identifica</Typography>
         <ParametroTable params={params} origenes={origenes} disabled={loading} handleChange={handleChange} />
-        <Button variant="contained" sx={{ml: 4}} onClick={handleBuscarMatcheo} disabled={loading}>Buscar</Button>
+        <Button variant="contained" sx={{ml: 4}} onClick={handleBuscarMatcheo} disabled={loading || opcionesSeleccionadas}>Buscar</Button>
       </Box>
       <FormControlLabel
         control={
