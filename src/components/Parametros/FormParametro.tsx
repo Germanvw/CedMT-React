@@ -11,8 +11,8 @@ interface Props {
 }
 
 export const FormParametro = ({ params, origenes }: Props) => {
-
   const { loading } = useAppSelector((state) => state.match)
+
   const dispatch = useAppDispatch()
 
   const handleChange = ({ target }: {target: HTMLInputElement}) => {
@@ -29,19 +29,19 @@ export const FormParametro = ({ params, origenes }: Props) => {
     <Box sx={{ display: 'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
       <FormControlLabel
         control={
-          <Checkbox checked={params.calculaTotales } onChange={handleChange} name="calculaTotales" size='small' />
+          <Checkbox checked={params.calculaTotales } disabled={loading} onChange={handleChange} name="calculaTotales" size='small' />
         }
         label="Calcula Totales"
         labelPlacement="start"
       />
        <Box sx={{ display: 'flex', flexDirection:'row', alignItems:'center', justifyContent:'center'}}>
         <Typography sx={{ pr:3 }}>Identifica</Typography>
-        <ParametroTable params={params} origenes={origenes} handleChange={handleChange} />
+        <ParametroTable params={params} origenes={origenes} disabled={loading} handleChange={handleChange} />
         <Button variant="contained" sx={{ml: 4}} onClick={handleBuscarMatcheo} disabled={loading}>Buscar</Button>
       </Box>
       <FormControlLabel
         control={
-          <Checkbox checked={params.identificaMatcheados } onChange={handleChange} name="identificaMatcheados" size='small' />
+          <Checkbox checked={params.identificaMatcheados } disabled={loading} onChange={handleChange} name="identificaMatcheados" size='small' />
         }
         label="Matcheados"
         labelPlacement="start"
