@@ -8,11 +8,11 @@ interface Props {
   header: string[]
   tiposVariable: string[]
   rows: string[][]
+  active: string
 }
 
-export const CustomTable = ({rows, header, tiposVariable}: Props) => {
-
-  const { page, pageSize, paginatedRows, handleChange, setPage } = usePagination(rows)
+export const CustomTable = ({ rows, header, tiposVariable, active }: Props) => {
+  const { page, pageSize, paginatedRows, handleChange, setPage } = usePagination(rows, active)
 
   return (
     <Paper>

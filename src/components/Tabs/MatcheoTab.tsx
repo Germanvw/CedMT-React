@@ -37,7 +37,7 @@ export const MatcheoTab = () => {
     </Tabs>
     {valores.length === 0 
       ? <Typography color={theme.colors.error}>No se han encontrado resultados</Typography>
-      : active && <PanelTab value={valores} separator={matcheo.delimitador}/> 
+      : active && <PanelTab active={active} value={valores} separator={matcheo.delimitador}/> 
     }
   </Box>  
   )

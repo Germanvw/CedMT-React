@@ -1,6 +1,6 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect } from 'react';
 
-export const usePagination = (rows: string[][]) => {
+export const usePagination = (rows: string[][], active: string ) => {
   const [page, setPage] = useState(0)
   const [pageSize, setPageSize] = useState(10)
 
@@ -13,6 +13,8 @@ export const usePagination = (rows: string[][]) => {
   const paginatedRows = useMemo(() => 
     rows ? rows.slice(page * pageSize, (page + 1) * pageSize) : []
   , [page, rows, pageSize])
+
+  useEffect(() => {if(active !== '') setPage(0)},[active])
 
   return { page, pageSize, paginatedRows, handleChange, setPage }
 }
