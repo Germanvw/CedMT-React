@@ -7,6 +7,7 @@ interface Props {
 }
 
 export const BodyTable = ({rows, tiposVariable}: Props) => {
+  console.log(rows)
   return (
     <TableBody>
       {rows.map((row,index) => (

@@ -10,7 +10,7 @@ interface Props {
   handleChange: ({ target }: { target: HTMLInputElement }) => void
 }
 
-const headRows = ['Calculo']
+const headRows = ['Calcular']
 
 export const ParametroCalculoTable = ({ params, disabled,  handleChange }: Props) => {
   const { calculaTotales, identificaMatcheados } = params

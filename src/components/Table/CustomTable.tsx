@@ -2,6 +2,7 @@ import { Paper, Table, TableCell, TableContainer, TableHead, TablePagination, Ta
 import { parseStringToSpaceUppercase } from '../../helper/parseString'
 import { BodyTable } from './BodyTable'
 import { usePagination } from '../../hook/usePagination'
+import { theme } from '../../styles/theme';
 
 interface Props {
   header: string[]
@@ -17,10 +18,10 @@ export const CustomTable = ({rows, header, tiposVariable}: Props) => {
     <Paper>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
+          <TableHead sx={{ backgroundColor: theme.colors.lightPrimary }}>
             <TableRow>
               {header.map((i, index) =>(
-                <TableCell sx={{ py: 0.5, px: 1, borderRight: index === header.length -1 ? 0 : 1, borderColor: 'rgba(224, 224, 224, 1)' }}  style={{width: '1px', whiteSpace: 'nowrap'}} align='center' key={index}>{parseStringToSpaceUppercase(i)}</TableCell> 
+                <TableCell sx={{ py: 0.5, px: 1, borderRight: index === header.length -1 ? 0 : 1, borderColor: theme.colors.gray, color: theme.colors.primary, fontWeight: 700, width: '1px', whiteSpace: 'nowrap'}} align='center' key={index}>{parseStringToSpaceUppercase(i)}</TableCell> 
                 ))}
             </TableRow>
           </TableHead>

@@ -1,4 +1,5 @@
 import { TableCell, TableRow } from '@mui/material'
+import { theme } from '../../styles/theme';
 
 interface Props {
   tiposVariable: string[]
@@ -22,7 +23,7 @@ export const CellTable = ({ row, tiposVariable } : Props) => {
   return (
     <TableRow>
       {row.map((i, index) => (
-      <TableCell sx={{ py: 0.5, px: 1, borderRight: index === row.length - 1 ? 0 : 1, borderColor: 'rgba(224, 224, 224, 1)' }} align='center' key={i+index}  style={{width: '1px', whiteSpace: 'nowrap'}}>
+      <TableCell sx={{ py: 0.5, px: 1, borderRight: index === row.length - 1 ? 0 : 1, borderColor: theme.colors.gray, color: theme.colors.darkLabel, fontWeight: '500', width: '1px', whiteSpace: 'nowrap' }} align='center' key={i+index}>
         {parseToTipoVariable(i, index)}
       </TableCell>))}
     </TableRow>

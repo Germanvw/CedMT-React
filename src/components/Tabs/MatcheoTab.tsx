@@ -19,6 +19,7 @@ export const MatcheoTab = () => {
       <Divider light={true} sx={{ py: 2 }} textAlign="center"><Chip sx={{ fontWeight: 'bold', backgroundColor: theme.colors.lighth, color: theme.colors.primary }} label="Resultados" /></Divider>
       <Tabs
         value={active}
+        sx={{pb: 2}}
         onChange={(_,value) => setActive(value)}
         textColor="primary"
         indicatorColor="primary"

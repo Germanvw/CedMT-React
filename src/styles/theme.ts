@@ -10,7 +10,8 @@ export const theme = {
     lightPrimary: '#D1DEF1',
     darkLabel: '#6A6E7C',
     lightLabel: '#838597',
-    error: 'red'
+    error: 'red',
+    gray: '#cbcddb'
   }
 }
 
