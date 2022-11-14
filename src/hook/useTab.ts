@@ -23,7 +23,7 @@ export const useTab = (matcheo: IMatcheoDto | null) => {
       const string = str[index]
   
       if(index === 0) response += string;
-      else response += ` ${string === 'Origen1' ? matcheo?.descrOrigen1 : string === 'Origen2' ? matcheo?.descrOrigen2 : string}`
+      else response += ` ${string === 'Origen1' ? matcheo?.origen1.descr : string === 'Origen2' ? matcheo?.origen2.descr : string}`
     }
   
     return response

@@ -36,9 +36,9 @@ export const paramSlice = createSlice({
       )
       .addMatcher(
         isAnyOf(startFetchParam.rejected),
-        (state: any, { payload }) => {
+        (state: any) => {
           state.loading = false
-          state.error = payload
+          state.error = 'Error al cargar los parametros de búsqueda'
           state.params = {}
         }
       )

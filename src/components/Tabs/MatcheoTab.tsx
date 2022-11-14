@@ -1,8 +1,9 @@
-import { Box, Tab, Tabs, Typography } from '@mui/material'
+import { Box, Tab, Tabs, Typography, Divider, Chip } from '@mui/material';
 import { useAppSelector } from '../../hook/useRedux'
 import { PanelTab } from './PanelTab'
 import { useTab } from '../../hook/useTab'
 import { IMatcheoData } from '../../interface/match'
+import { theme } from '../../styles/theme'
 
 export const MatcheoTab = () => {
   const { matcheo } = useAppSelector((state) => state.match)
@@ -15,8 +16,8 @@ export const MatcheoTab = () => {
 
   return (
     <Box>
+      <Divider light={true} sx={{ py: 2 }} textAlign="center"><Chip sx={{ fontWeight: 'bold', backgroundColor: theme.colors.lighth, color: theme.colors.primary }} label="Resultados" /></Divider>
       <Tabs
-        sx={{ my: 5}}
         value={active}
         onChange={(_,value) => setActive(value)}
         textColor="primary"
@@ -34,7 +35,7 @@ export const MatcheoTab = () => {
         }
     </Tabs>
     {valores.length === 0 
-      ? <Typography color='red'>No se han encontrado resultados</Typography>
+      ? <Typography color={theme.colors.error}>No se han encontrado resultados</Typography>
       : active && <PanelTab value={valores} separator={matcheo.delimitador}/> 
     }
   </Box>  

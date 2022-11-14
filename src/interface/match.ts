@@ -2,6 +2,8 @@ import { IMethodResponse, IErrorResponse } from '.';
 
 interface IMatcheoCommon {
   delimitador: string
+  origen1: IMatcheoOrigenDesc
+  origen2: IMatcheoOrigenDesc
 }
 
 export interface IMatcheoData {
@@ -13,16 +15,17 @@ export interface IMatcheoData {
   noMatcheadosOrigen2: string[]
 }
 
-interface IMatcheoDescripcion {
-  descrOrigen1: string
-  descrOrigen2: string
+interface IMatcheoOrigenDesc {
+  descr: string
+  id: string
+  ultimoArchivoProcesado: string
 }
 
-export interface IMatcheo extends IMatcheoCommon, IMatcheoData, IMatcheoDescripcion{
+export interface IMatcheo extends IMatcheoCommon, IMatcheoData{
 }
 
 
-export interface IMatcheoDto extends IMatcheoCommon, IMatcheoDescripcion  {
+export interface IMatcheoDto extends IMatcheoCommon  {
   data: IMatcheoData
 }
 
@@ -38,7 +41,6 @@ export interface IMatchSliceState {
   loading: boolean
 }
 
-
 export interface IExecuteRequestBody {
   sectorId: string
   entidadId: string
@@ -49,13 +51,3 @@ export interface IExecuteRequestBody {
   identificaNoMatchOrigen2: boolean
   identificaMatcheados: boolean
 }
-// interface IMatcheoDtoItem {
-//   descripcion: string
-//   duplicados: string[]
-//   noMatcheados: string[]
-// }
-
-// export interface IMatcheoDto extends IMatcheoCommon {
-//   origen1: IMatcheoDtoItem
-//   origen2: IMatcheoDtoItem
-// }

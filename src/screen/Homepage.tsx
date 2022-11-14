@@ -8,7 +8,7 @@ export const Homepage = () => {
   return (
     <Container maxWidth='xl'>
       <Grid container justifyContent='center' display='flex' alignItems='center'>
-        <Grid item md={12} lg={6} justifyContent='center' display='flex' alignItems='center'>
+        <Grid item md={12} lg={4} justifyContent='center' display='flex' alignItems='center'>
           <Grid container justifyContent='center' display='flex' alignItems='center'>
             <Grid item md={6}>
               <SectorSelector />
@@ -18,7 +18,7 @@ export const Homepage = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item md={12} lg={6} >
+        <Grid item md={12} lg={8} >
           <GrillaParametro />
         </Grid>
       </Grid>
