@@ -1,5 +1,5 @@
 import { IMethodResponse } from '.';
-import { IErrorResponse, IDropdownResponse } from './index';
+import { IErrorResponse } from './index';
 
 export interface IParamSliceState {
   params: IParamMatcheo | null
@@ -24,7 +24,7 @@ export interface IParamMatcheo {
 }
 
 export interface IParamOrigenes {
-  origen1: string,
+  origen1: string
   origen2: string
 }
 

@@ -1,5 +1,5 @@
 import { fetchToken } from '../../hook/useFetch'
-import { IExecuteRequestBody, IMatcheo, IMatcheoResponse } from '../../interface/match'
+import { IExecuteRequestBody, IMatcheo, IMatcheoResponse } from '../../interface/match';
 import { IParamMatcheo } from '../../interface/param'
 
 const buscar = async (sectorId: string, entidadId: string, params: IParamMatcheo) : Promise<IMatcheo> => {

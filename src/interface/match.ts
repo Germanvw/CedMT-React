@@ -4,6 +4,7 @@ interface IMatcheoCommon {
   delimitador: string
   origen1: IMatcheoOrigenDesc
   origen2: IMatcheoOrigenDesc
+  resultado: IResultadoPeticion
 }
 
 export interface IMatcheoData {
@@ -21,12 +22,17 @@ interface IMatcheoOrigenDesc {
   ultimoArchivoProcesado: string
 }
 
-export interface IMatcheo extends IMatcheoCommon, IMatcheoData{
+export interface IMatcheo extends IMatcheoCommon, IMatcheoData {
 }
 
 
 export interface IMatcheoDto extends IMatcheoCommon  {
   data: IMatcheoData
+}
+
+export interface IResultadoPeticion {
+  ok: boolean
+  detalle: string
 }
 
 export interface IMatcheoResponse {

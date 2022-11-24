@@ -18,7 +18,7 @@ export const Matcheo = () => {
       {!loading 
         && <Box
           sx={{
-            height: 1000,
+            height: 'auto',
           }}
             >
             {!error

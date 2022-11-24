@@ -8,10 +8,9 @@ import { theme } from '../../styles/theme';
 interface Props {
   params: IParamMatcheo
   loading: boolean
-  handleChange: ({ target }: { target: HTMLInputElement }) => void
 }
 
-export const GrillaParametroCalculo = ({ params, loading,  handleChange }: Props) => {
+export const GrillaParametroCalculo = ({ params, loading }: Props) => {
   
   const dispatch = useAppDispatch()
 
@@ -25,7 +24,7 @@ export const GrillaParametroCalculo = ({ params, loading,  handleChange }: Props
     <Box 
       sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', px: 3, py: 1 }}
       >
-      <ParametroCalculoTable params={params} disabled={loading} handleChange={handleChange} />
+      <ParametroCalculoTable params={params} disabled={loading} />
       <Button variant="contained" sx={{ ml: 3, px: 2, height: 40, backgroundColor: theme.colors.primary }} onClick={handleBuscarMatcheo} disabled={loading || opcionesSeleccionadas}>Buscar</Button>
     </Box>
   )

@@ -16,7 +16,7 @@ export const MatcheoTab = () => {
 
   return (
     <Box>
-      <Divider light={true} sx={{ py: 2 }} textAlign="center"><Chip sx={{ fontWeight: 'bold', backgroundColor: theme.colors.lighth, color: theme.colors.primary }} label="Resultados" /></Divider>
+      <Divider light={true} sx={{ py: 2 }} textAlign="center"><Chip sx={{ fontWeight: 'bold', backgroundColor: theme.colors.lighth, color: matcheo.resultado.ok ? theme.colors.primary : theme.colors.error }} label={matcheo.resultado.detalle} /></Divider>
       <Tabs
         value={active}
         sx={{pb: 2}}
@@ -39,6 +39,6 @@ export const MatcheoTab = () => {
       ? <Typography color={theme.colors.error}>No se han encontrado resultados</Typography>
       : active && <PanelTab active={active} value={valores} separator={matcheo.delimitador}/> 
     }
-  </Box>  
+    </Box>  
   )
 }

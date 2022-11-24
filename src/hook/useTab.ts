@@ -6,7 +6,6 @@ export const useTab = (matcheo: IMatcheoDto | null) => {
 
   const buscarValores = () : string[] => {
     if(matcheo){
-
       const valores = matcheo.data[active as keyof IMatcheoData]
 
       return valores ? valores : ['']
@@ -15,6 +14,7 @@ export const useTab = (matcheo: IMatcheoDto | null) => {
   }
   
   const calcularLabel = (label: string) => {
+
     const str = label.split(/(?=[A-Z])/)
     let response = ''
 
@@ -25,8 +25,9 @@ export const useTab = (matcheo: IMatcheoDto | null) => {
       if(index === 0) response += string;
       else response += ` ${string === 'Origen1' ? matcheo?.origen1.descr : string === 'Origen2' ? matcheo?.origen2.descr : string}`
     }
-  
-    return response
+    const arrayLength = matcheo?.data[label as keyof IMatcheoData].length
+
+    return `${response} (${arrayLength ? arrayLength - 2 : 0})`
   }
 
   
